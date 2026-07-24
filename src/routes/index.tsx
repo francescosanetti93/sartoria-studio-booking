@@ -49,12 +49,12 @@ function track(event: string, payload: Record<string, unknown> = {}) {
 export const Route = createFileRoute("/")({ component: Home });
 
 // ---------- Placeholder immagine mancante ----------
-function Placeholder({ label, className = "", ratio = "4 / 5" }: { label: string; className?: string; ratio?: string }) {
+function Placeholder({ label, className = "", ratio = "4 / 5", imgClassName = "" }: { label: string; className?: string; ratio?: string; imgClassName?: string }) {
   const img = IMAGES[label];
   if (img) {
     return (
       <div className={`relative w-full overflow-hidden ${className}`} style={{ aspectRatio: ratio, background: "var(--lino)" }}>
-        <img src={img.url} alt={img.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={img.url} alt={img.alt} loading="lazy" className={`absolute inset-0 w-full h-full object-cover ${imgClassName}`} />
       </div>
     );
   }
@@ -65,6 +65,24 @@ function Placeholder({ label, className = "", ratio = "4 / 5" }: { label: string
           Mancante · {label}
         </span>
       </div>
+    </div>
+  );
+}
+
+// ---------- Video loop ----------
+function VideoLoop({ src, poster, ratio = "9 / 16", className = "" }: { src: string; poster?: string; ratio?: string; className?: string }) {
+  return (
+    <div className={`relative w-full overflow-hidden bg-black ${className}`} style={{ aspectRatio: ratio }}>
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={src}
+        poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      />
     </div>
   );
 }
