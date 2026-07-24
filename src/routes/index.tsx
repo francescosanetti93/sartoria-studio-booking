@@ -395,11 +395,13 @@ function Galleria() {
         </Rise>
         <div className="grid grid-cols-6 gap-3 md:gap-4">
           <div className="col-span-6 md:col-span-4 md:row-span-2"><Placeholder label="dettaglio-1.jpg" ratio="4 / 3" /></div>
-          <div className="col-span-3 md:col-span-2"><Placeholder label="dettaglio-2.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-3 md:col-span-2"><Placeholder label="dettaglio-3.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-2"><Placeholder label="atelier-1.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-2"><Placeholder label="atelier-2.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-2"><Placeholder label="dettaglio-2.jpg" ratio="1 / 1" /></div>
+          <div className="col-span-3 md:col-span-2"><Placeholder label="ritratto-1.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-2"><Placeholder label="dettaglio-3.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-2"><VideoLoop src={videoCerimonia.url} ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-2"><Placeholder label="ritratto-2.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-6 md:col-span-2"><VideoLoop src={videoCollezione.url} ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-3"><Placeholder label="ritratto-3.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-3"><Placeholder label="camicia.jpg" ratio="3 / 4" /></div>
         </div>
       </div>
     </section>
