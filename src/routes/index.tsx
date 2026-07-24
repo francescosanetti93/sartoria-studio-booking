@@ -4,17 +4,30 @@ import heroImg from "../assets/hero.jpg.asset.json";
 import portraitBn from "../assets/portrait-bn.jpg.asset.json";
 import specchio from "../assets/specchio.jpg.asset.json";
 import atelierSketch from "../assets/atelier-sketch.jpg.asset.json";
+import ph8782 from "../assets/DSC_8782.jpg.asset.json";
+import ph8805 from "../assets/DSC_8805.jpg.asset.json";
+import ph8825 from "../assets/DSC_8825.jpg.asset.json";
+import ph8918 from "../assets/DSC_8918.jpg.asset.json";
+import ph8924 from "../assets/DSC_8924.jpg.asset.json";
+import ph8207 from "../assets/DSC_8207.jpg.asset.json";
+import ph8304 from "../assets/DSC_8304.jpg.asset.json";
+import ph8536 from "../assets/DSC_8536-e1603813895346.jpg.asset.json";
+import videoCerimonia from "../assets/cerimonia_12_compr.mp4.asset.json";
+import videoCollezione from "../assets/collezione07_1.mp4.asset.json";
 
 const IMAGES: Record<string, { url: string; alt: string }> = {
   "hero.jpg": { url: heroImg.url, alt: "Savino e Antonio Di Pietrantonio in abito Antichi Telai" },
-  "abito.jpg": { url: portraitBn.url, alt: "Ritratto in bianco e nero di uomo in giacca a quadri" },
-  "camicia.jpg": { url: atelierSketch.url, alt: "Bozzetto di una giacca su tessuto in atelier" },
-  "cerimonia.jpg": { url: specchio.url, alt: "Prova smoking allo specchio in atelier" },
-  "dettaglio-1.jpg": { url: specchio.url, alt: "Dettaglio prova abito allo specchio" },
-  "dettaglio-2.jpg": { url: portraitBn.url, alt: "Dettaglio giacca a quadri in bianco e nero" },
-  "dettaglio-3.jpg": { url: atelierSketch.url, alt: "Dettaglio bozzetto e tessuto in atelier" },
-  "atelier-1.jpg": { url: specchio.url, alt: "Interno atelier Antichi Telai" },
-  "atelier-2.jpg": { url: atelierSketch.url, alt: "Tavolo di lavoro in atelier" },
+  "abito.jpg": { url: ph8536.url, alt: "Abito gessato grigio su misura" },
+  "camicia.jpg": { url: ph8805.url, alt: "Dettaglio camicia bianca con giacca a quadri blu" },
+  "cerimonia.jpg": { url: ph8207.url, alt: "Abito da cerimonia bordeaux con gilet" },
+  "dettaglio-1.jpg": { url: ph8782.url, alt: "Giacca sportiva in lana con sciarpa in seta" },
+  "dettaglio-2.jpg": { url: portraitBn.url, alt: "Ritratto in bianco e nero, giacca a quadri" },
+  "dettaglio-3.jpg": { url: ph8304.url, alt: "Abito Principe di Galles doppiopetto seduto in poltrona" },
+  "atelier-1.jpg": { url: specchio.url, alt: "Prova smoking allo specchio in atelier" },
+  "atelier-2.jpg": { url: atelierSketch.url, alt: "Bozzetto di una giacca su tessuto in atelier" },
+  "ritratto-1.jpg": { url: ph8825.url, alt: "Abito a quadri blu e viola con cravatta viola" },
+  "ritratto-2.jpg": { url: ph8918.url, alt: "Cappotto grigio doppiopetto con pantalone a quadri" },
+  "ritratto-3.jpg": { url: ph8924.url, alt: "Cappotto grigio e abito blu in movimento" },
 };
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_ME";
@@ -36,12 +49,12 @@ function track(event: string, payload: Record<string, unknown> = {}) {
 export const Route = createFileRoute("/")({ component: Home });
 
 // ---------- Placeholder immagine mancante ----------
-function Placeholder({ label, className = "", ratio = "4 / 5" }: { label: string; className?: string; ratio?: string }) {
+function Placeholder({ label, className = "", ratio = "4 / 5", imgClassName = "" }: { label: string; className?: string; ratio?: string; imgClassName?: string }) {
   const img = IMAGES[label];
   if (img) {
     return (
       <div className={`relative w-full overflow-hidden ${className}`} style={{ aspectRatio: ratio, background: "var(--lino)" }}>
-        <img src={img.url} alt={img.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={img.url} alt={img.alt} loading="lazy" className={`absolute inset-0 w-full h-full object-cover ${imgClassName}`} />
       </div>
     );
   }
@@ -52,6 +65,24 @@ function Placeholder({ label, className = "", ratio = "4 / 5" }: { label: string
           Mancante · {label}
         </span>
       </div>
+    </div>
+  );
+}
+
+// ---------- Video loop ----------
+function VideoLoop({ src, poster, ratio = "9 / 16", className = "" }: { src: string; poster?: string; ratio?: string; className?: string }) {
+  return (
+    <div className={`relative w-full overflow-hidden bg-black ${className}`} style={{ aspectRatio: ratio }}>
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={src}
+        poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      />
     </div>
   );
 }
@@ -119,7 +150,7 @@ function Hero({ onBook }: { onBook: () => void }) {
   return (
     <section id="top" className="relative w-full h-[100svh] overflow-hidden" style={{ background: "#23201C" }}>
       <div className="absolute inset-0 hero-zoom">
-        <Placeholder label="hero.jpg" ratio="16 / 9" className="!h-full !aspect-auto opacity-90" />
+        <Placeholder label="hero.jpg" ratio="16 / 9" className="!h-full !aspect-auto opacity-90" imgClassName="object-[78%_center] md:object-center" />
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(35,32,28,0.35) 0%, rgba(35,32,28,0.15) 40%, rgba(35,32,28,0.85) 100%)" }} />
       <div className="relative z-10 h-full flex items-end">
@@ -364,11 +395,13 @@ function Galleria() {
         </Rise>
         <div className="grid grid-cols-6 gap-3 md:gap-4">
           <div className="col-span-6 md:col-span-4 md:row-span-2"><Placeholder label="dettaglio-1.jpg" ratio="4 / 3" /></div>
-          <div className="col-span-3 md:col-span-2"><Placeholder label="dettaglio-2.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-3 md:col-span-2"><Placeholder label="dettaglio-3.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-2"><Placeholder label="atelier-1.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-2"><Placeholder label="atelier-2.jpg" ratio="1 / 1" /></div>
-          <div className="col-span-2"><Placeholder label="dettaglio-2.jpg" ratio="1 / 1" /></div>
+          <div className="col-span-3 md:col-span-2"><Placeholder label="ritratto-1.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-2"><Placeholder label="dettaglio-3.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-2"><VideoLoop src={videoCerimonia.url} ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-2"><Placeholder label="ritratto-2.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-6 md:col-span-2"><VideoLoop src={videoCollezione.url} ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-3"><Placeholder label="ritratto-3.jpg" ratio="3 / 4" /></div>
+          <div className="col-span-3 md:col-span-3"><Placeholder label="camicia.jpg" ratio="3 / 4" /></div>
         </div>
       </div>
     </section>
