@@ -37,6 +37,14 @@ export const Route = createFileRoute("/")({ component: Home });
 
 // ---------- Placeholder immagine mancante ----------
 function Placeholder({ label, className = "", ratio = "4 / 5" }: { label: string; className?: string; ratio?: string }) {
+  const img = IMAGES[label];
+  if (img) {
+    return (
+      <div className={`relative w-full overflow-hidden ${className}`} style={{ aspectRatio: ratio, background: "var(--lino)" }}>
+        <img src={img.url} alt={img.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+      </div>
+    );
+  }
   return (
     <div className={`herringbone relative w-full overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       <div className="absolute inset-0 flex items-end p-4">
