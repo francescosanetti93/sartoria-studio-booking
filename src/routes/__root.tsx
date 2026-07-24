@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
@@ -14,21 +13,11 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center px-4" style={{ background: "#F4F0E8" }}>
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <h1 className="serif" style={{ fontSize: 96 }}>404</h1>
+        <p className="mt-2" style={{ color: "#23201C" }}>Questa pagina non esiste.</p>
+        <a href="/" className="btn btn-primary mt-6 inline-flex">Torna alla home</a>
       </div>
     </div>
   );
@@ -42,30 +31,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center px-4" style={{ background: "#F4F0E8" }}>
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <h2 className="serif" style={{ fontSize: 32 }}>Qualcosa non ha caricato</h2>
+        <div className="mt-6">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="btn btn-primary"
           >
-            Try again
+            Riprova
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
         </div>
       </div>
     </div>
@@ -77,21 +52,50 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Antichi Telai 1894 | Sartoria e camiceria su misura a Roma" },
+      { name: "description", content: "Abiti su misura a Roma dal 1894. Sartoria e camiceria da uomo con atelier a Monteverde, Balduina e Vigna Clara. Prenota un appuntamento." },
+      { name: "author", content: "Antichi Telai 1894" },
+      { property: "og:title", content: "Antichi Telai 1894 — Sartoria su misura a Roma" },
+      { property: "og:description", content: "Abiti e camicie su misura da uomo. Tre atelier a Roma. Dal 1894." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Antichi Telai 1894" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ClothingStore",
+          name: "Antichi Telai 1894",
+          description: "Sartoria e camiceria su misura da uomo a Roma dal 1894.",
+          telephone: "+39 06 5820 9633",
+          email: "info@antichitelai.it",
+          foundingDate: "1894",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Via Roberto Alessandri 53",
+            postalCode: "00151",
+            addressLocality: "Roma",
+            addressCountry: "IT",
+          },
+          areaServed: "Roma",
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "10:00", closes: "13:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "14:30", closes: "19:30" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "13:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "16:00", closes: "19:30" },
+          ],
+          sameAs: ["https://www.instagram.com/antichitelai1894official"],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -102,9 +106,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="it">
       <head>
         <HeadContent />
+        {/* GA4 / Google Ads: inserire ID e decommentare
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+        <script dangerouslySetInnerHTML={{__html:`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');`}}/>
+        */}
+        <script dangerouslySetInnerHTML={{ __html: "window.dataLayer = window.dataLayer || [];" }} />
       </head>
       <body>
         {children}
@@ -116,10 +125,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
