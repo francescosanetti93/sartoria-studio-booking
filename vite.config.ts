@@ -15,3 +15,4 @@ export default defineConfig({
 });
 
 // force dev server restart
+// r2
