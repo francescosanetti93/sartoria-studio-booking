@@ -69,6 +69,11 @@ function track(event: string, payload: Record<string, unknown> = {}) {
 
 export const Route = createFileRoute("/")({ component: Home });
 
+const IMG_POS: Record<string, string> = {
+  "camicia.jpg": "object-[center_88%]",
+  "cerimonia.jpg": "object-[center_12%]",
+};
+
 // ---------- Placeholder immagine mancante ----------
 function Placeholder({
   label,
@@ -92,7 +97,7 @@ function Placeholder({
           src={img.url}
           alt={img.alt}
           loading="lazy"
-          className={`absolute inset-0 w-full h-full object-cover ${imgClassName}`}
+          className={`absolute inset-0 w-full h-full object-cover ${IMG_POS[label] ?? ""} ${imgClassName}`}
         />
       </div>
     );
