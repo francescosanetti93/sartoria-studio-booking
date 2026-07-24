@@ -1,5 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import heroImg from "../assets/hero.jpg.asset.json";
+import portraitBn from "../assets/portrait-bn.jpg.asset.json";
+import specchio from "../assets/specchio.jpg.asset.json";
+import atelierSketch from "../assets/atelier-sketch.jpg.asset.json";
+
+const IMAGES: Record<string, { url: string; alt: string }> = {
+  "hero.jpg": { url: heroImg.url, alt: "Savino e Antonio Di Pietrantonio in abito Antichi Telai" },
+  "abito.jpg": { url: portraitBn.url, alt: "Ritratto in bianco e nero di uomo in giacca a quadri" },
+  "camicia.jpg": { url: atelierSketch.url, alt: "Bozzetto di una giacca su tessuto in atelier" },
+  "cerimonia.jpg": { url: specchio.url, alt: "Prova smoking allo specchio in atelier" },
+  "dettaglio-1.jpg": { url: specchio.url, alt: "Dettaglio prova abito allo specchio" },
+  "dettaglio-2.jpg": { url: portraitBn.url, alt: "Dettaglio giacca a quadri in bianco e nero" },
+  "dettaglio-3.jpg": { url: atelierSketch.url, alt: "Dettaglio bozzetto e tessuto in atelier" },
+  "atelier-1.jpg": { url: specchio.url, alt: "Interno atelier Antichi Telai" },
+  "atelier-2.jpg": { url: atelierSketch.url, alt: "Tavolo di lavoro in atelier" },
+};
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_ME";
 
