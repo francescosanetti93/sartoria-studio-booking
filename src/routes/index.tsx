@@ -150,7 +150,7 @@ function Hero({ onBook }: { onBook: () => void }) {
   return (
     <section id="top" className="relative w-full h-[100svh] overflow-hidden" style={{ background: "#23201C" }}>
       <div className="absolute inset-0 hero-zoom">
-        <Placeholder label="hero.jpg" ratio="16 / 9" className="!h-full !aspect-auto opacity-90" />
+        <Placeholder label="hero.jpg" ratio="16 / 9" className="!h-full !aspect-auto opacity-90" imgClassName="object-[78%_center] md:object-center" />
       </div>
       <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(35,32,28,0.35) 0%, rgba(35,32,28,0.15) 40%, rgba(35,32,28,0.85) 100%)" }} />
       <div className="relative z-10 h-full flex items-end">
