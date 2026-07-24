@@ -13,3 +13,5 @@ export default defineConfig({
     server: { entry: "server" },
   },
 });
+
+// force dev server restart
