@@ -37,13 +37,18 @@ export function Placeholder({
 
   if (photo) {
     return (
-      <div className={`relative w-full overflow-hidden ${className}`}>
+      <div className={`relative w-full overflow-hidden bg-background ${className}`}>
         <img
           src={photo}
           alt={label}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
+          style={{ filter: "brightness(0.72) contrast(1.1) saturate(0.8)" }}
         />
+        {/* Uniform dark wash so every real photo reads as noir/materic, regardless
+            of the source photo's own lighting (studio portraits, daylight, etc.) —
+            keeps the site consistently black per the brand direction. */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
     );
   }
