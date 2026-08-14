@@ -4,13 +4,21 @@ import { useI18n } from "../i18n/I18nContext";
 import { track } from "../lib/track";
 import type { Split as SplitT } from "../i18n/types";
 
-export function Split({ split, reverse }: { split: SplitT; reverse?: boolean }) {
+export function Split({
+  split,
+  reverse,
+  photo,
+}: {
+  split: SplitT;
+  reverse?: boolean;
+  photo?: string;
+}) {
   const { path } = useI18n();
   return (
     <section className="border-t border-border">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-2 lg:gap-24 lg:px-10 lg:py-32">
         <div className={reverse ? "lg:order-2" : ""}>
-          <Placeholder label={split.photoLabel} className="aspect-[1408/1008]" />
+          <Placeholder label={split.photoLabel} src={photo} className="aspect-[1408/1008]" />
         </div>
         <div className={reverse ? "lg:order-1" : ""}>
           <p className="eyebrow">{split.eyebrow}</p>
