@@ -3,6 +3,14 @@ import { Placeholder } from "../components/Placeholder";
 import { Split } from "../components/Split";
 import { useI18n } from "../i18n/I18nContext";
 import { track } from "../lib/track";
+import atelierSketch from "../assets/real/atelier-sketch.jpg";
+import specchio from "../assets/real/specchio.jpg";
+import portraitBn from "../assets/real/portrait-bn.jpg";
+import cappottoDoppiopetto from "../assets/real/cappotto-doppiopetto.jpg";
+
+// Real photos for the 4 home splits, in the same fixed order as h.splits
+// (I Telai / Esperienza Roma / Sarto itinerante / Atelier) across every locale.
+const SPLIT_PHOTOS = [atelierSketch, specchio, portraitBn, cappottoDoppiopetto];
 
 export default function Home() {
   const { t, path } = useI18n();
@@ -39,7 +47,7 @@ export default function Home() {
       </section>
 
       {h.splits.map((split, i) => (
-        <Split key={split.to + i} split={split} reverse={i % 2 === 1} />
+        <Split key={split.to + i} split={split} reverse={i % 2 === 1} photo={SPLIT_PHOTOS[i]} />
       ))}
 
       <section className="relative border-t border-border py-36 text-center">

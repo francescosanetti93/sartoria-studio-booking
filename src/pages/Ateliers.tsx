@@ -2,6 +2,13 @@ import { Link } from "react-router-dom";
 import { Placeholder } from "../components/Placeholder";
 import { useI18n } from "../i18n/I18nContext";
 import { track } from "../lib/track";
+import atelierSketch from "../assets/real/atelier-sketch.jpg";
+import camiciaDettaglio from "../assets/real/camicia-dettaglio.jpg";
+import specchio from "../assets/real/specchio.jpg";
+
+// Real photos for the 3 atelier spaces, in the same fixed order as a.spaces
+// (Monteverde / Balduina / Vigna Clara) across every locale.
+const SPACE_PHOTOS = [atelierSketch, camiciaDettaglio, specchio];
 
 export default function Ateliers() {
   const { t, path } = useI18n();
@@ -25,7 +32,7 @@ export default function Ateliers() {
         <section key={space.name} className="border-t border-border">
           <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-2 lg:gap-24 lg:px-10 lg:py-32">
             <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-              <Placeholder label={space.photoLabel} className="aspect-[1408/1008]" />
+              <Placeholder label={space.photoLabel} src={SPACE_PHOTOS[i]} className="aspect-[1408/1008]" />
             </div>
             <div className={i % 2 === 1 ? "lg:order-1" : ""}>
               <p className="eyebrow">{space.role}</p>
