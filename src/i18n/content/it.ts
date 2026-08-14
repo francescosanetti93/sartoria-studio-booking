@@ -1,0 +1,187 @@
+import type { SiteContent } from "../types";
+
+const it: SiteContent = {
+  meta: {
+    title: "Antichi Telai — Tessuto su misura a Roma, su invito",
+    description:
+      "Stoffa tessuta su telai romani centenari, per un cliente alla volta. Accesso solo su richiesta privata.",
+  },
+  draftBanner: "Traduzione in bozza — in attesa di revisione madrelingua",
+  nav: {
+    craft: "I Telai",
+    experience: "L'Esperienza",
+    ateliers: "Gli Atelier",
+    apply: "Richiedi un invito",
+    taglineYear: "Roma — dal 1894",
+  },
+  home: {
+    heroEyebrow: "Roma — su invito",
+    heroTitle: "La tua stoffa non si sceglie.\nSi tesse.",
+    heroCta: "Richiedi un invito",
+    manifestoEyebrow: "Tre atelier. Un cliente alla volta.",
+    manifestoBody:
+      "Non vendiamo abiti. Apriamo le porte di un laboratorio dove la stoffa si fa ancora a mano, su telai più vecchi degli uomini che li usano — e realizziamo qualcosa che esiste una volta sola.",
+    splits: [
+      {
+        eyebrow: "I Telai",
+        title: "Un secolo di filo",
+        body: "Fibra scelta a mano da lanifici che conosciamo da decenni — Dormeuil, Holland & Sherry, e le case italiane da cui compriamo ancora di persona. Ordita a mano nell'arco di giorni. Tessuta lentamente, su telai costruiti più di un secolo fa. Qui niente si può ripetere, e niente si può affrettare.",
+        cta: "Guarda i telai",
+        to: "craft",
+        photoLabel: "I TELAI — MANI SULL'ORDITO",
+      },
+      {
+        eyebrow: "L'Esperienza — Roma",
+        title: "Tre giorni dentro il laboratorio",
+        body: "Arrivo con auto privata. Una suite riservata per te. Mattine al telaio a guardare la tua stoffa prendere forma, pomeriggi di prova, sere in città come nostro ospite. L'abito è ciò che porti a casa; i giorni sono ciò che ricordi.",
+        cta: "Entra nell'esperienza",
+        to: "experience",
+        photoLabel: "ESPERIENZA — ROMA, ORA D'ORO",
+      },
+      {
+        eyebrow: "L'Esperienza — Altrove",
+        title: "Il sarto itinerante",
+        body: "Per chi non ha il tempo per Roma, è il maestro a viaggiare. Una suite privata, due ore, le tue misure archiviate per sempre. I telai continuano a lavorare mentre dormi.",
+        cta: "Guarda l'itinerario",
+        to: "experience",
+        photoLabel: "SARTO ITINERANTE — BAULE, SUITE D'HOTEL",
+      },
+      {
+        eyebrow: "Gli Atelier",
+        title: "Tre stanze a Roma",
+        body: "Monteverde, Balduina, Vigna Clara — tre spazi privati condotti dalla famiglia Di Pietrantonio dal 1894. Nessuna vetrina, nessuna insegna. Visti solo su appuntamento.",
+        cta: "Guarda gli atelier",
+        to: "ateliers",
+        photoLabel: "ATELIER — INTERNO, MONTEVERDE",
+      },
+    ],
+    admissionEyebrow: "Ammissione",
+    admissionTitle: "Accettiamo un numero limitato di clienti ogni stagione.",
+    admissionBody:
+      "Non c'è catalogo né listino prezzi. Raccontaci l'occasione e la tua città; un client advisor ti risponderà personalmente, di solito entro un'ora.",
+    admissionCta: "Richiedi un invito",
+  },
+  craft: {
+    eyebrow: "I Telai",
+    heroTitle: "Telai più vecchi di un secolo. Mani che li hanno tenuti in vita.",
+    photoCaption: "Il laboratorio Di Pietrantonio — Monteverde, Roma.",
+    steps: [
+      {
+        n: "I",
+        t: "La fibra",
+        d: "Merino Super 150s, cashmere grezzo, seta — scelti da Dormeuil, Holland & Sherry e dai lanifici italiani da cui compriamo da decenni. Acquistiamo in quantità troppo piccole per interessare una grande casa, e troppo particolari per essere sostituite.",
+      },
+      {
+        n: "II",
+        t: "L'ordito",
+        d: "Diversi giorni di lavoro, in due persone, per infilare a mano migliaia di fili. Un errore qui non si corregge dopo: si può solo tagliare e ricominciare.",
+      },
+      {
+        n: "III",
+        t: "La tessitura",
+        d: "Undici centimetri all'ora, su telai costruiti più di un secolo fa. I telai sono di legno: respirano col tempo, e la stoffa porta quell'irregolarità. Una macchina moderna ne fa molti di più — e nessuno è vivo come questo.",
+      },
+      {
+        n: "IV",
+        t: "La finitura",
+        d: "Lavata in acqua dolce, battuta, riposata per settimane. La stoffa viene poi tagliata in atelier a mano, seguendo un cartamodello conservato finché resti nostro cliente.",
+      },
+    ],
+    stats: [
+      { k: "1894", v: "L'anno in cui la casa è nata, in Abruzzo." },
+      { k: "3", v: "Atelier a Roma, ciascuno aperto solo su appuntamento." },
+      { k: "11 cm", v: "Tessuti all'ora. Una lunghezza da giacca richiede diversi giorni di lavoro." },
+    ],
+    closingTitle: "La stoffa esiste una volta sola. Così l'invito.",
+    closingCta: "Richiedi un invito",
+  },
+  experience: {
+    eyebrow: "L'Esperienza",
+    heroTitle: "Vieni tu al telaio, o è chi lo custodisce a venire da te.",
+    romanLabel: "Uno — In entrata",
+    romanTitle: "The Roman Atelier Experience",
+    romanIntro:
+      "Tre giorni come ospite della casa. Viaggio, trasferimenti e soggiorno sono organizzati dal nostro concierge presso un hotel a cinque stelle nel centro di Roma; nulla compare in fattura come extra. Sei qui per vedere la stoffa nascere e per essere misurato come si deve. Al resto pensiamo noi.",
+    romanDays: [
+      { n: "Primo giorno", t: "", d: "Trasferimento privato dall'aeroporto. Suite riservata presso l'hotel partner. Sera: gli atelier a lume di lampada, da solo con il tagliatore." },
+      { n: "Secondo giorno", t: "", d: "Mattina al telaio — il tuo ordito viene montato e la prima lunghezza tessuta mentre guardi. Pranzo in cortile. Pomeriggio: prima prova imbastita." },
+      { n: "Terzo giorno", t: "", d: "Seconda prova. Scelta di fodere, corno, filo. Una cena in città organizzata intorno al tuo tavolo, non al nostro." },
+      { n: "Dopo", t: "", d: "Il capo viene finito nell'arco di alcune settimane e consegnato a mano al tuo indirizzo, ovunque sia, da un membro della casa." },
+    ],
+    travelingLabel: "Due — In uscita",
+    travelingTitle: "The Traveling Master",
+    travelingIntro:
+      "Alcune volte l'anno il maestro e il suo baule vengono accolti in una suite privata nella tua città. Due ore, su appuntamento, con la stessa stoffa e la stessa mano di taglio. Le tue misure e preferenze restano archiviate; dalla seconda commissione sappiamo già tutto.",
+    travelCitiesLabel: "Circuito stagionale",
+    travelCities: ["Dubai", "Abu Dhabi", "Londra", "Ginevra", "Mosca", "New York", "Miami", "Shanghai", "Hong Kong", "Singapore"],
+    travelNote: "Le date sono comunicate solo alla lista d'attesa. Le città si aggiungono quando abbastanza clienti lo richiedono.",
+    procedureEyebrow: "Come si procede",
+    procedureTitle: "Richiesta, una risposta personale, una conversazione. Poi la stoffa.",
+    procedureBody: "Nessun prezzo è pubblicato. Dopo la conversazione, un acconto conferma la commissione e l'ordito viene preparato a tuo nome.",
+    cta: "Richiedi un invito",
+  },
+  ateliers: {
+    eyebrow: "Gli Atelier",
+    heroTitle: "Tre stanze a Roma, nessuna con un'insegna sulla porta.",
+    heroNote: "Gli indirizzi si danno solo con appuntamento confermato. Non c'è vetrina né ingresso dalla strada.",
+    spaces: [
+      {
+        name: "Monteverde",
+        address: "Via Roberto Alessandri 53, 00151 Roma",
+        role: "Il laboratorio originale",
+        text: "Dove si sceglie la fibra e si ricevono i clienti la prima volta, sempre da soli. La stanza originale della casa, aperta da quando la famiglia si è trasferita a Roma.",
+        photoLabel: "ATELIER MONTEVERDE — INGRESSO",
+      },
+      {
+        name: "Balduina",
+        address: "Via Romeo Rodriguez Pereira 120, 00136 Roma",
+        role: "La stanza silenziosa",
+        text: "Uno spazio più piccolo, preferito per le prove senza pubblico. È la stanza in cui i clienti chiedono di tornare.",
+        photoLabel: "ATELIER BALDUINA — INTERNO",
+      },
+      {
+        name: "Vigna Clara",
+        address: "Piazza Carli 10, 00191 Roma",
+        role: "Il tavolo da taglio",
+        text: "La più recente delle tre, vicina agli hotel del quadrante nord della città. Qui si conservano i cartamodelli dopo la prima commissione.",
+        photoLabel: "ATELIER VIGNA CLARA — TAVOLO DA TAGLIO",
+      },
+    ],
+    byAppointment: "Solo su appuntamento",
+    closingTitle: "Il cancello si apre per chi aspettiamo.",
+    closingCta: "Richiedi un invito",
+    contactTitle: "Contatto diretto",
+  },
+  apply: {
+    eyebrow: "Richiesta privata",
+    title: "Raccontaci un po' di te. Ti racconteremo tutto il resto.",
+    intro:
+      "Accettiamo un numero limitato di clienti ogni stagione. Questo non è un ordine — è l'inizio di una conversazione con un advisor dedicato. Nessun prezzo viene mostrato finché non ci siamo parlati.",
+    fields: { name: "Nome e cognome", city: "Città e paese", email: "Email", phone: "WhatsApp / WeChat", note: "Altro che dovremmo sapere" },
+    occasionLabel: "L'occasione",
+    occasions: ["Un matrimonio", "Un guardaroba, da zero", "Abito cerimoniale o ufficiale", "Un regalo", "Altro"],
+    routeLabel: "Preferiresti",
+    routes: ["Venire a Roma", "Ricevere il maestro nella mia città", "Non deciso — consigliatemi"],
+    heardLabel: "Come ci hai conosciuti",
+    heard: ["Un cliente attuale", "Un hotel o un concierge", "Stampa o editoriale", "Social", "Un'altra maison"],
+    submit: "Invia la richiesta",
+    sending: "Invio in corso",
+    disclaimer: "Trattato in riservatezza. Mai condiviso, mai usato per invii promozionali.",
+    successEyebrow: "Ricevuta",
+    successTitle: "La tua richiesta è presso un client advisor.",
+    successBody: "Sarai contattato personalmente — per nome, su WhatsApp o WeChat, nella tua lingua. Di solito entro un'ora, mai oltre lo stesso giorno.",
+    errorText: "Qualcosa non ha funzionato. Puoi anche scriverci direttamente:",
+  },
+  footer: {
+    blurb: "Tre atelier a Roma. Stoffa tessuta per un cliente alla volta, dal 1894.",
+    discretionEyebrow: "Riservatezza",
+    discretionBody: "Gli indirizzi si condividono solo con appuntamento confermato. Nessuna vetrina, nessun accesso libero, nessun listino pubblico.",
+    cta: "Richiedi un invito",
+    languagesEyebrow: "Lingue",
+    languagesNote: "Il tuo advisor risponde su WhatsApp o WeChat, nella tua lingua, in pochi minuti.",
+    directContactEyebrow: "Contatto diretto",
+    byInvitation: "Solo su invito",
+  },
+};
+
+export default it;
